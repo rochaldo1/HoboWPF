@@ -1,9 +1,11 @@
-﻿using System;
+﻿using HoboWPF.ViewModel.DataManager;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using HoboWPF.ViewModel;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
@@ -19,9 +21,12 @@ namespace HoboWPF.View
     /// </summary>
     public partial class StartWindow : Window
     {
-        public StartWindow()
+        IDataManager dataManager;
+        public StartWindow(IDataManager dataManager)
         {
+            this.dataManager = dataManager;
             InitializeComponent();
+            DataContext = new StartVM(dataManager);
         }
     }
 }

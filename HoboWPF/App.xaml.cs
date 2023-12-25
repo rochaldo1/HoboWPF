@@ -1,4 +1,5 @@
 ﻿using HoboConsolePrjct.Data;
+using HoboWPF.View;
 using HoboWPF.ViewModel.DataManager;
 using System.Configuration;
 using System.Data;
@@ -33,7 +34,34 @@ namespace HoboWPF
             string JobPath = ConfigurationManager.AppSettings["JobPath"] ?? string.Empty;
             string StorePath = ConfigurationManager.AppSettings["StorePath"] ?? string.Empty;
 
+            hoboRepository = new HoboRepository(HobosPath);
+            almsEventsRepository = new AlmsEventsRepository(AlmsPath);
+            drugDenRepository = new DrugDenRepository(DrugDenPath);
+            estateEngencyRepository = new EstateEngencyRepository(EstatePath);
+            garbageEventsRepository = new GarbageEventsRepository(GarbagePath);
+            hospitalRepository = new HospitalRepository(HospitalPath);
+            jobEventsRepository = new JobEventsRepository(JobPath);
+            storeRepository = new StoreRepository(StorePath);
 
+
+            dataManager = DataManager.Instance(hoboRepository, almsEventsRepository, drugDenRepository, estateEngencyRepository, garbageEventsRepository, hospitalRepository, jobEventsRepository, storeRepository);
+
+        }
+
+        protected override async void OnStartup(StartupEventArgs e)
+        {
+            base.OnStartup(e);
+            await dataManager.LoadHobosAsync();
+            await dataManager.LoadAlmsAsync();
+            await dataManager.LoadDrugDenAsync();
+            await dataManager.LoadEgencyAsync();
+            await dataManager.LoadGarbageAsync();
+            await dataManager.LoadHospitalDenAsync();
+            await dataManager.LoadJobAsync();
+            await dataManager.LoadStoreAsync();
+
+            StartWindow startWindow = new StartWindow(dataManager);
+            startWindow.Show();
         }
 
     }

@@ -9,11 +9,21 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="View\Images\" />
+    <None Remove="View\Images\hobo1.jpg" />
+    <None Remove="View\Images\hobo2.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ViewModel\Services\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="View\Images\hobo1.jpg" />
+    <Resource Include="View\Images\hobo2.jpg" />
   </ItemGroup>
 
 </Project>

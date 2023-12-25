@@ -17,6 +17,10 @@
     </Style>
 
     <Style x:Key="Buttons_Start_Style" TargetType="Button">
+        <Setter Property="FontWeight" Value="Bold"></Setter>
+        <Setter Property="FontSize" Value="16"></Setter>
+        <Setter Property="FontStyle" Value="Italic"></Setter>
+        <Setter Property="Foreground" Value="Wheat"></Setter>
         <Setter Property="Background">
             <Setter.Value>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
@@ -25,5 +29,30 @@
                 </LinearGradientBrush>
             </Setter.Value>
         </Setter>
+    </Style>
+
+    <!--Стили профиля-->
+    <Style x:Key="Profile_Img" TargetType="Ellipse">
+        <Setter Property="Margin" Value="0 0 0 0"></Setter>
+        <Setter Property="Width" Value="50"></Setter>
+        <Setter Property="Height" Value="50"></Setter>
+        <Setter Property="Fill">
+            <Setter.Value>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#FF00FF" Offset="0"></GradientStop>
+                    <GradientStop Color="#4B0082" Offset="1"></GradientStop>
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="VerticalAlignment" Value="Center"></Setter>
+    </Style>
+    
+    <Style x:Key="Hobo_Name" TargetType="TextBlock">
+        <Setter Property="VerticalAlignment" Value="Center"></Setter>
+        <Setter Property="Margin" Value="15 0 0 0"></Setter>
+        <Setter Property="FontWeight" Value="Bold"></Setter>
+        <Setter Property="FontSize" Value="16"></Setter>
+        <Setter Property="FontStyle" Value="Italic"></Setter>
+        <Setter Property="TextWrapping" Value="NoWrap"></Setter>
     </Style>
 </ResourceDictionary>
