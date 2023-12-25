@@ -25,11 +25,28 @@ namespace HoboWPF.ViewModel.DataManager
         public GarbageEventsRepository GarbageEventsRepository { get; }
         public Hospital hospital { get; }
         public HospitalRepository HospitalRepository { get; }
-
         public JobEvents JobEvents { get; }
         public JobEventsRepository JobEventsRepository { get; }
+        public StoreRepository StoreRepository { get; }
 
-        public Task SaveAllAsync();
-        public Task LoadAllAsync();
+        public Task LoadHobosAsync();
+        public Task LoadAlmsAsync();
+        public Task LoadDrugDenAsync();
+        public Task LoadEgencyAsync();
+        public Task LoadGarbageAsync();
+        public Task LoadHospitalDenAsync();
+        public Task LoadJobAsync();
+        public Task LoadStoreAsync();
+
+
+        public Task SaveHobosAsync();
+        public Task SaveAlmsAsync();
+        public Task SaveDrugDenAsync();
+        public Task SaveEgencyAsync();
+        public Task SaveGarbageAsync();
+        public Task SaveHospitalDenAsync();
+        public Task SaveJobAsync();
+        public Task SaveStoreAsync();
+
     }
 }
