@@ -37,13 +37,13 @@ namespace HoboConsolePrjct.Model.Hobo
         {
             return $"Имя: {Name}\nЗдоровье: {Health}\nЭнергия: {Energy}\nНАСЫЩЕНИЕ: {Satiation}\nЭМОТИОНАЛ ДАМАГЕ:{EmotionalState}\nДеньги: {Money}\n" + inventory.ToString();
         }
-        public bool UseItem(IHobo hobo, int i)
+        public bool UseItem(int i)
         {
             List<IStack> hoboInventory = inventory.ShowInventory() ;
             if (hoboInventory.Count == 0 || (i > hoboInventory.Count - 1)) return false;
             if (CheckCount.Check(hoboInventory[i]))
             {
-                hoboInventory[i].Item.Effect(hobo, hoboInventory[i].Item);
+                hoboInventory[i].Item.Effect(this, hoboInventory[i].Item);
                 hoboInventory[i].Count--;
                 if (CheckCount.Check(hoboInventory[i]))
                 {

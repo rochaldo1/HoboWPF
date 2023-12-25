@@ -25,7 +25,7 @@ namespace HoboWPF.ViewModel.DataManager
         private readonly GarbageEventsRepository _garbageEventsRepository;
         public Hospital _hospital = null;
         private readonly HospitalRepository _hospitalRepository;
-        public JobEvents jobEvents = null;
+        public JobEvents _jobEvents = null;
         private readonly JobEventsRepository _jobEventsRepository;
         private readonly StoreRepository storeRepository;
 
@@ -55,7 +55,7 @@ namespace HoboWPF.ViewModel.DataManager
 
         public GarbageEventsRepository GarbageEventsRepository => _garbageEventsRepository;
 
-        public Hospital hospital => _hosptal;
+        public Hospital hospital => _hospital;
 
         public HospitalRepository HospitalRepository => _hospitalRepository;
 
@@ -71,11 +71,6 @@ namespace HoboWPF.ViewModel.DataManager
         public Task SaveAllAsync()
         {
             throw new NotImplementedException();
-        }
-
-        public bool TryCreateHobo(string name)
-        {
-            var TryFind = from x in HoboRepository.
         }
     }
 }

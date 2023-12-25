@@ -31,7 +31,5 @@ namespace HoboWPF.ViewModel.DataManager
 
         public Task SaveAllAsync();
         public Task LoadAllAsync();
-
-        public bool TryCreateHobo(string name);
     }
 }
