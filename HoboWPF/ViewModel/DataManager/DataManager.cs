@@ -42,7 +42,15 @@ namespace HoboWPF.ViewModel.DataManager
         }
         public static DataManager Instance(HoboRepository _hoboRepository, AlmsEventsRepository _almsEventsRepository, DrugDenRepository _drugDenRepository, EstateEngencyRepository _estateEngencyRepository, GarbageEventsRepository _garbageEventsRepository, HospitalRepository _hospitalRepository, JobEventsRepository _jobEventsRepository, StoreRepository _storeRepository) => new(_hoboRepository, _almsEventsRepository, _drugDenRepository, _estateEngencyRepository, _garbageEventsRepository, _hospitalRepository, _jobEventsRepository, _storeRepository);
 
-        public Hobo _concreteHobo => concreteHobo;
+        public Hobo _concreteHobo
+        {
+            get => concreteHobo;
+            set
+            {
+                if(value != null)
+                    concreteHobo = value;
+            }
+        }
 
         public HoboRepository hoboRepository => _hoboRepository;
 

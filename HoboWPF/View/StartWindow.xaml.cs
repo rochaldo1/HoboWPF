@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using HoboWPF.ViewModel.Services;
 
 namespace HoboWPF.View
 {
@@ -22,11 +23,23 @@ namespace HoboWPF.View
     public partial class StartWindow : Window
     {
         IDataManager dataManager;
-        public StartWindow(IDataManager dataManager)
+        IServiceManager serviceManager;
+        public StartWindow(IDataManager dataManager,IServiceManager serviceManager)
         {
-            this.dataManager = dataManager;
             InitializeComponent();
-            DataContext = new StartVM(dataManager);
+            DataContext = new StartVM(this.dataManager = dataManager, this.serviceManager = serviceManager);
+            if(DataContext is StartVM startVM)
+            {
+                startVM.TakeHoboSucces += OpenMainHoboWindow;
+                
+            }
+        }
+
+        private void OpenMainHoboWindow()
+        {
+            MainHoboWindow mainHoboWindow = new MainHoboWindow(dataManager, serviceManager);
+            mainHoboWindow.Show();
+            this.Close();
         }
     }
 }

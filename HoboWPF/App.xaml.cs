@@ -1,6 +1,8 @@
 ﻿using HoboConsolePrjct.Data;
 using HoboWPF.View;
 using HoboWPF.ViewModel.DataManager;
+using HoboWPF.ViewModel.Services;
+using HoboWPF.ViewModel.Services.GoToHoboService;
 using System.Configuration;
 using System.Data;
 using System.Windows;
@@ -13,6 +15,8 @@ namespace HoboWPF
     public partial class App : Application
     {
         private IDataManager dataManager;
+        private IServiceManager serviceManager;
+        private ITakeHoboService takeHoboService;
         private AlmsEventsRepository almsEventsRepository;
         private EstateEngencyRepository estateEngencyRepository;
         private DrugDenRepository drugDenRepository;
@@ -45,7 +49,8 @@ namespace HoboWPF
 
 
             dataManager = DataManager.Instance(hoboRepository, almsEventsRepository, drugDenRepository, estateEngencyRepository, garbageEventsRepository, hospitalRepository, jobEventsRepository, storeRepository);
-
+            takeHoboService = TakeHoboService.Instance();
+            serviceManager = ServiceManager.Instanse(dataManager, takeHoboService);
         }
 
         protected override async void OnStartup(StartupEventArgs e)
@@ -60,7 +65,7 @@ namespace HoboWPF
             await dataManager.LoadJobAsync();
             await dataManager.LoadStoreAsync();
 
-            StartWindow startWindow = new StartWindow(dataManager);
+            StartWindow startWindow = new StartWindow(dataManager,serviceManager);
             startWindow.Show();
         }
 

@@ -13,7 +13,7 @@ namespace HoboWPF.ViewModel.DataManager
 {
     public interface IDataManager
     {
-        public Hobo _concreteHobo { get; }
+        public Hobo _concreteHobo { get; set; }
         public HoboRepository hoboRepository { get; }
         public AlmsEvents almsEvents { get; }
         public AlmsEventsRepository AlmsEventsRepository { get; }
