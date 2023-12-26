@@ -13,6 +13,6 @@ namespace HoboConsole.Model.Items.Base
         Medicine,
         Drugs,
         RealEstate,
-        Garbage
+        Garbage,
     }
 }

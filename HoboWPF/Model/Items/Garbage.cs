@@ -19,17 +19,20 @@ namespace HoboConsole.Model.Items
         public string Name { get; }
         public int Pleasure { get; }
         public int Healthy { get; }
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonIgnore]
         public ItemTypeEnum ItemType { get; }
-
-        public Garbage(Guid id, int price, string name, int pleasure, int healthy, ItemTypeEnum itemTypeEnum)
+        [JsonProperty ("ItemTypeNum")]
+        public int ItemTypeNum { get; set; }
+        [JsonConstructor]
+        public Garbage(Guid id, int price, string name, int pleasure, int healthy, int ItemTypeNum)
         {
             Id = id;
             Price = price;
             Name = name;
             Pleasure = pleasure;
             Healthy = healthy;
-            ItemType = itemTypeEnum;
+            this.ItemTypeNum = ItemTypeNum;
+            ItemType = (ItemTypeEnum)this.ItemTypeNum;
         }
 
         public void Effect(IHobo hobo, IItem item)

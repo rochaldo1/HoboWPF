@@ -18,16 +18,19 @@ namespace HoboConsole.Model.Items
         public int Price { get; }
         public string Name { get; }
         public int Pleasure { get; } //Определяет как и как сильно влияет купленная вещь на эмоц. состояние
-        [JsonConverter(typeof(StringEnumConverter))]
+        public int ItemTypeNum { get; set; }
+        [JsonIgnore]
         public ItemTypeEnum ItemType { get; }
-
-        public Clothes(Guid id, int price, string name, int pleasure, ItemTypeEnum itemTypeEnum)
+        [JsonConstructor]
+        public Clothes(Guid id, int price, string name, int pleasure, int ItemTypeNum)
         {
             Id = id;
             Price = price;
             Name = name;
             Pleasure = pleasure;
-            ItemType = itemTypeEnum;
+            this.ItemTypeNum = ItemTypeNum;
+            ItemType = (ItemTypeEnum)(this.ItemTypeNum);
+
         }
         public void Effect(IHobo hobo, IItem item)
         {

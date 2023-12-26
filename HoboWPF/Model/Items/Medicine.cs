@@ -21,10 +21,12 @@ namespace HoboConsole.Model.Items
         public int Pleasure { get; } //Определяет как и как сильно влияет купленная вещь на эмоц. состояние
         public int Healthy { get; } //Определяет насколько увеличится или уменьшится здоровье
         public int EnergyBoost { get; }
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonIgnore]
         public ItemTypeEnum ItemType { get; }
 
-        public Medicine(Guid id, int price, string name, int pleasure, int healthy, int energyBoost, ItemTypeEnum itemType)
+        public int ItemTypeNum { get; set; }
+        [JsonConstructor]
+        public Medicine(Guid id, int price, string name, int pleasure, int healthy, int energyBoost, int ItemTypeNum)
         {
             Id = id;
             Price = price;
@@ -32,7 +34,8 @@ namespace HoboConsole.Model.Items
             Pleasure = pleasure;
             Healthy = healthy;
             EnergyBoost = energyBoost;
-            ItemType = itemType;
+            this.ItemTypeNum = ItemTypeNum;
+            ItemType = (ItemTypeEnum)this.ItemTypeNum;
         }
 
         public void Effect(IHobo hobo, IItem item)
