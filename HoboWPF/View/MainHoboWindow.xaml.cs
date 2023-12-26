@@ -24,7 +24,7 @@ namespace HoboWPF.View
     {
         IDataManager dataManager;
         IServiceManager serviceManager;
-        public MainHoboWindow(IDataManager dataManager,IServiceManager serviceManager)
+        public MainHoboWindow(IDataManager dataManager, IServiceManager serviceManager)
         {
             InitializeComponent();
             DataContext = new MainHoboVM(this.dataManager = dataManager, this.serviceManager = serviceManager);
