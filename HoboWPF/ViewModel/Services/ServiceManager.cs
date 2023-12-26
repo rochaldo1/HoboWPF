@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using HoboWPF.ViewModel.Services.DeleteHoboService;
+using HoboWPF.ViewModel.Services.GarbageEventService;
 
 namespace HoboWPF.ViewModel.Services
 {
@@ -20,15 +21,17 @@ namespace HoboWPF.ViewModel.Services
         IAlmsEventService almsEventService;
         IDeleteHoboService deleteHoboService;
         IAddHoboService addHoboService;
-        public ServiceManager(IDataManager dataManager, ITakeHoboService takeHoboService, IAlmsEventService almsEventService, IDeleteHoboService deleteHoboService, IAddHoboService addHoboService)
+        IGarbageEService garbageEService;
+        public ServiceManager(IDataManager dataManager, ITakeHoboService takeHoboService, IAlmsEventService almsEventService, IDeleteHoboService deleteHoboService, IAddHoboService addHoboService, IGarbageEService garbageEService)
         {
             this.dataManager = dataManager;
             this.takeHoboService = takeHoboService;
             this.almsEventService = almsEventService;
             this.deleteHoboService = deleteHoboService;
             this.addHoboService = addHoboService;
+            this.garbageEService = garbageEService;
         }
-        public static ServiceManager Instanse(IDataManager dataManager, ITakeHoboService takeHoboService,IAlmsEventService almsEventService, IDeleteHoboService deleteHoboService,IAddHoboService addHoboService) => new(dataManager, takeHoboService, almsEventService, deleteHoboService,addHoboService);
+        public static ServiceManager Instanse(IDataManager dataManager, ITakeHoboService takeHoboService,IAlmsEventService almsEventService, IDeleteHoboService deleteHoboService,IAddHoboService addHoboService, IGarbageEService garbageEService) => new(dataManager, takeHoboService, almsEventService, deleteHoboService,addHoboService,garbageEService);
 
         public bool TryTakeHobo(Hobo hobo)
         {
@@ -40,6 +43,15 @@ namespace HoboWPF.ViewModel.Services
             dataManager.almsEvents = dataManager.AlmsEventsRepository.GetAlmsEvents();
             int number = random.Next(0, GetCount.GetCountOf(dataManager.almsEvents.EventsList));
             return almsEventService.TryAlmsEvent(number, dataManager);
+        }
+
+        public bool TryGarbageEvent()
+        {
+            Random random = new Random();
+            dataManager.GarbageEvents = dataManager.GarbageEventsRepository.GetGarbageEvents();
+            int number = random.Next(0,GetCount.GetCountOf(dataManager.GarbageEvents.EventsList));
+            return garbageEService.TryGarbageEvent(number, dataManager);
+
         }
 
         public void DeleteHobo()

@@ -11,6 +11,7 @@ namespace HoboWPF.ViewModel.Services
     {
         public bool TryTakeHobo(Hobo hobo);
         public bool TryAlmsEvent();
+        public bool TryGarbageEvent();
         public void DeleteHobo();
         public bool TryAddHobo(string name);
     }

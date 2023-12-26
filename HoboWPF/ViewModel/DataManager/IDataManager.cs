@@ -22,7 +22,7 @@ namespace HoboWPF.ViewModel.DataManager
         public DrugDenRepository DrugDenRepository { get; }
         public EstateEngency Engency { get; }
         public EstateEngencyRepository EstateEngencyRepository { get; }
-        public GarbageEvents GarbageEvents { get; }
+        public GarbageEvents GarbageEvents { get; set; }
         public GarbageEventsRepository GarbageEventsRepository { get; }
         public Hospital hospital { get; }
         public HospitalRepository HospitalRepository { get; }

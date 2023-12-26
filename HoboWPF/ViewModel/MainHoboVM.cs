@@ -21,8 +21,9 @@ namespace HoboWPF.ViewModel
         private int emotionalState;
         private int money;
 
-        public event Action? AlmsSucces;
-        public event Action<string>? AlmsFailed;
+        public event Action? EventSucces;
+        public event Action<string>? EventFailed;
+      
 
 
         public MainHoboVM(IDataManager dataManager, IServiceManager serviceManager)
@@ -71,29 +72,54 @@ namespace HoboWPF.ViewModel
             set => Set(ref money, value);
         }
 
-        private void Alms()
+        private void AlmsEvent()
         {
             if (serviceManager.TryAlmsEvent())
             {
-                AlmsSucces?.Invoke();
+                EventSucces?.Invoke();
                 Refresh();
             }
             else
             {
                 serviceManager.DeleteHobo();
-                AlmsFailed?.Invoke("Ваш бомжик умер(((((( Игра закончена!");
+                EventFailed?.Invoke("Ваш бомжик умер(((((( Игра закончена!");
                 
             }
-            
         }
 
-        public ICommand AlmsCommand
+        private void GarbageEvent()
+        {
+            if (serviceManager.TryGarbageEvent())
+            {
+                EventSucces?.Invoke();
+                Refresh();
+            }
+            else
+            {
+                serviceManager.DeleteHobo();
+                EventFailed?.Invoke("Ваш бомжик умер(((((( Игра закончена!");
+
+            }
+        }
+
+        public ICommand GarbageEventCommand
         {
             get
             {
                 return new Command(() =>
                 {
-                    Alms();
+                    GarbageEvent();
+                });
+            }
+        }
+
+        public ICommand AlmsEventCommand
+        {
+            get
+            {
+                return new Command(() =>
+                {
+                    AlmsEvent();
                 });
             }
         }

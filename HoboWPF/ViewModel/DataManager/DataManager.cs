@@ -81,7 +81,15 @@ namespace HoboWPF.ViewModel.DataManager
 
         public EstateEngencyRepository EstateEngencyRepository => _estateEngencyRepository;
 
-        public GarbageEvents GarbageEvents => _garbageEvents;
+        public GarbageEvents GarbageEvents
+        {
+            get => _garbageEvents;
+            set
+            {
+                if (value != null)
+                    _garbageEvents = value;
+            }
+        }
 
         public GarbageEventsRepository GarbageEventsRepository => _garbageEventsRepository;
 

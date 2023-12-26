@@ -30,8 +30,8 @@ namespace HoboWPF.View
             DataContext = new MainHoboVM(this.dataManager = dataManager, this.serviceManager = serviceManager);
             if(DataContext is MainHoboVM mainHoboVM) 
             {
-                mainHoboVM.AlmsSucces += OpenEventWindow;
-                mainHoboVM.AlmsFailed += OpenHoboDied;
+                mainHoboVM.EventSucces += OpenEventWindow;
+                mainHoboVM.EventFailed += OpenHoboDied;
             }
         }
 
