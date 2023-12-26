@@ -97,7 +97,15 @@ namespace HoboWPF.ViewModel.DataManager
 
         public HospitalRepository HospitalRepository => _hospitalRepository;
 
-        public JobEvents JobEvents => _jobEvents;
+        public JobEvents JobEvents
+        {
+            get => _jobEvents;
+            set
+            {
+                if (value != null)
+                    _jobEvents = value;
+            }
+        }
 
         public JobEventsRepository JobEventsRepository => _jobEventsRepository;
 

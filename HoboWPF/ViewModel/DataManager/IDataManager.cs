@@ -26,7 +26,7 @@ namespace HoboWPF.ViewModel.DataManager
         public GarbageEventsRepository GarbageEventsRepository { get; }
         public Hospital hospital { get; }
         public HospitalRepository HospitalRepository { get; }
-        public JobEvents JobEvents { get; }
+        public JobEvents JobEvents { get; set; }
         public JobEventsRepository JobEventsRepository { get; }
         public StoreRepository StoreRepository { get; }
 

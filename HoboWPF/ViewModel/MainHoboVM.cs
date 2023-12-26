@@ -102,6 +102,31 @@ namespace HoboWPF.ViewModel
             }
         }
 
+        private void JobEvent()
+        {
+            if (serviceManager.TryJobEvents())
+            {
+                EventSucces?.Invoke();
+                Refresh();
+            }
+            else
+            {
+                serviceManager.DeleteHobo();
+                EventFailed?.Invoke("Ваш бомжик умер(((((( Игра закончена!");
+
+            }
+        }
+
+        public ICommand JobEventCommand
+        {
+            get
+            {
+                return new Command(() =>
+                {
+                    JobEvent();
+                });
+            }
+        }
         public ICommand GarbageEventCommand
         {
             get

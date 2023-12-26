@@ -77,7 +77,7 @@
             <StackPanel Orientation="Horizontal">
                 <Button x:Name="Alms_Button" Command="{Binding AlmsEventCommand}" Content="Просить милостыню" Style="{StaticResource ResourceKey=Events_button_Style}"></Button>
                 <Button x:Name="Garbage_Button" Command="{Binding GarbageEventCommand}" Content="Сходить на помойку" Style="{StaticResource ResourceKey=Events_button_Style}"></Button>
-                <Button x:Name="Job_Button" Command="" Content="Работать" Style="{StaticResource ResourceKey=Events_button_Style}"></Button>
+                <Button x:Name="Job_Button" Command="{Binding JobEventCommand}" Content="Работать" Style="{StaticResource ResourceKey=Events_button_Style}"></Button>
             </StackPanel>
         </Grid>
         <Grid x:Name="Big_Hobo_Information" Grid.Row="2">

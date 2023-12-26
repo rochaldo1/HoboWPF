@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using HoboWPF.ViewModel.Services.DeleteHoboService;
 using HoboWPF.ViewModel.Services.GarbageEventService;
+using HoboWPF.ViewModel.Services.JobEventService;
 
 namespace HoboWPF.ViewModel.Services
 {
@@ -22,7 +23,8 @@ namespace HoboWPF.ViewModel.Services
         IDeleteHoboService deleteHoboService;
         IAddHoboService addHoboService;
         IGarbageEService garbageEService;
-        public ServiceManager(IDataManager dataManager, ITakeHoboService takeHoboService, IAlmsEventService almsEventService, IDeleteHoboService deleteHoboService, IAddHoboService addHoboService, IGarbageEService garbageEService)
+        IJobEService jobEService;
+        public ServiceManager(IDataManager dataManager, ITakeHoboService takeHoboService, IAlmsEventService almsEventService, IDeleteHoboService deleteHoboService, IAddHoboService addHoboService, IGarbageEService garbageEService, IJobEService jobEService)
         {
             this.dataManager = dataManager;
             this.takeHoboService = takeHoboService;
@@ -30,8 +32,9 @@ namespace HoboWPF.ViewModel.Services
             this.deleteHoboService = deleteHoboService;
             this.addHoboService = addHoboService;
             this.garbageEService = garbageEService;
+            this.jobEService = jobEService;
         }
-        public static ServiceManager Instanse(IDataManager dataManager, ITakeHoboService takeHoboService,IAlmsEventService almsEventService, IDeleteHoboService deleteHoboService,IAddHoboService addHoboService, IGarbageEService garbageEService) => new(dataManager, takeHoboService, almsEventService, deleteHoboService,addHoboService,garbageEService);
+        public static ServiceManager Instanse(IDataManager dataManager, ITakeHoboService takeHoboService,IAlmsEventService almsEventService, IDeleteHoboService deleteHoboService,IAddHoboService addHoboService, IGarbageEService garbageEService, IJobEService jobEService) => new(dataManager, takeHoboService, almsEventService, deleteHoboService,addHoboService,garbageEService, jobEService);
 
         public bool TryTakeHobo(Hobo hobo)
         {
@@ -52,6 +55,14 @@ namespace HoboWPF.ViewModel.Services
             int number = random.Next(0,GetCount.GetCountOf(dataManager.GarbageEvents.EventsList));
             return garbageEService.TryGarbageEvent(number, dataManager);
 
+        }
+
+        public bool TryJobEvents()
+        {
+            Random random = new Random();
+            dataManager.JobEvents = dataManager.JobEventsRepository.GetJobEvents();
+            int number = random.Next(0, GetCount.GetCountOf(dataManager.JobEvents.EventsList));
+            return jobEService.TryJobEvent(number, dataManager);
         }
 
         public void DeleteHobo()
