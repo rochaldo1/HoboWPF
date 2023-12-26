@@ -37,6 +37,10 @@ namespace HoboConsolePrjct.Model.Event
             {
                 for (int i = 0; i < stacks.Count; i++)
                 {
+                    if (stacks[i].Count == 0 && (whatEvent == 0 || whatEvent == 1 || whatEvent == 2 || whatEvent == 3 ))
+                    {
+                        stacks[i].Count = 1;
+                    }
                     hobo.inventory.AddStack(stacks[i]);
                 }
             }

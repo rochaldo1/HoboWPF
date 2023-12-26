@@ -33,10 +33,19 @@ namespace HoboConsolePrjct.Model.InventoryFolder
 
         public void AddStack(IStack item)
         {
-            if (stacks.Contains(item))
+            var p = from stacked in stacks
+                    where stacked.Item.Name == item.Item.Name
+                    select stacked;
+            if (p.Count()!=0)
             {
-                stacks[stacks.IndexOf(item)].Count++;
-                return;
+                for(int i=0;i< stacks.Count ;i++)
+                {
+                    if (stacks[i].Item.Name == item.Item.Name)
+                    {
+                        stacks[i].Count++;
+                        return;
+                    }
+                }
             }
             stacks.Add(item);
         }
