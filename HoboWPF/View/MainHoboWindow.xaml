@@ -96,7 +96,46 @@
             </Grid>
 
             <Grid x:Name="Hobo_InventoryList" Grid.Column="2">
-                
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="25"></RowDefinition>
+                    <RowDefinition Height="25"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition Height="25"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <TextBlock Text="Инвентарь"></TextBlock>
+                </Grid>
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="{Binding NameItem}" Grid.Column="0"></TextBlock>
+                    <TextBlock Text="{Binding TypeItem}" Grid.Column="1"></TextBlock>
+                </Grid>
+                <Grid Grid.Row="2">
+                    <ScrollViewer>
+                        <ListBox x:Name="InventoryList" ItemsSource="{Binding Stacks}" SelectedIndex="{Binding Index}">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="20"></RowDefinition>
+                                            <RowDefinition Height="20"></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <TextBlock x:Name="Count_Of_Stack" Text="{Binding Count}" Grid.Row="0"></TextBlock>
+                                    </Grid>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </ScrollViewer>
+                </Grid>
+                <Grid Grid.Row="3">
+                    <StackPanel Orientation="Horizontal">
+                        <Button Content="Использовать" Command="{Binding UseItemCommand}"></Button>
+                        <Button Content="Продать" Command="{Binding SellItemCommand}"></Button>
+                    </StackPanel>
+                </Grid>
             </Grid>
         </Grid>
     </Grid>

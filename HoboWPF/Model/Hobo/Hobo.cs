@@ -41,6 +41,11 @@ namespace HoboConsolePrjct.Model.Hobo
         {
             List<IStack> hoboInventory = inventory.ShowInventory() ;
             if (hoboInventory.Count == 0 || (i > hoboInventory.Count - 1)) return false;
+            if (hoboInventory[i].Count == 0)
+            {
+                inventory.DeleteItem(i);
+                return false;
+            }
             if (CheckCount.Check(hoboInventory[i]))
             {
                 hoboInventory[i].Item.Effect(this, hoboInventory[i].Item);

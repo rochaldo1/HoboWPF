@@ -32,6 +32,7 @@ namespace HoboWPF.View
             {
                 mainHoboVM.EventSucces += OpenEventWindow;
                 mainHoboVM.EventFailed += OpenHoboDied;
+                mainHoboVM.UseItemEventFailed += OpenErrorWindow;
             }
         }
 
@@ -48,7 +49,12 @@ namespace HoboWPF.View
             ErrorWindow errorWindow = new ErrorWindow(text);
             errorWindow.ShowDialog();
             this.Close();
-            
+        }
+
+        private void OpenErrorWindow(string text)
+        {
+            ErrorWindow errorWindow = new ErrorWindow(text);
+            errorWindow.ShowDialog();
         }
 
     }

@@ -31,6 +31,7 @@ namespace HoboWPF.View
             if(DataContext is StartVM startVM)
             {
                 startVM.TakeHoboSucces += OpenMainHoboWindow;
+                startVM.TakeHoboFailed += OpenErrorWindow;
                 
             }
         }
@@ -42,6 +43,11 @@ namespace HoboWPF.View
             this.Close();
         }
 
+        private void OpenErrorWindow(string text)
+        {
+            ErrorWindow errorWindow = new ErrorWindow(text);
+            errorWindow.ShowDialog();
+        }
         private void Create_Hobo_Button_Click(object sender, RoutedEventArgs e)
         {
             HoboAddWindow hoboAddWindow = new HoboAddWindow(dataManager, serviceManager);

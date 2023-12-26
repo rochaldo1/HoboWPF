@@ -7,6 +7,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using HoboWPF.ViewModel.Commands;
+using System.Printing;
+using System.Collections.ObjectModel;
+using HoboConsole.Model.Stacks;
+using HoboConsole.Model.Items.Base;
 
 namespace HoboWPF.ViewModel
 {
@@ -20,10 +24,15 @@ namespace HoboWPF.ViewModel
         private int satiation;
         private int emotionalState;
         private int money;
+        private ObservableCollection<IStack> stacks;
+        private int index;
+        private string nameItem;
+        private string typeItem;
+        
 
         public event Action? EventSucces;
         public event Action<string>? EventFailed;
-      
+        public event Action<string>? UseItemEventFailed;
 
 
         public MainHoboVM(IDataManager dataManager, IServiceManager serviceManager)
@@ -36,6 +45,8 @@ namespace HoboWPF.ViewModel
             Satiation = this.dataManager._concreteHobo.Satiation;
             EmotionalState = this.dataManager._concreteHobo.EmotionalState;
             Money = this.dataManager._concreteHobo.Money;
+            Stacks = new ObservableCollection<IStack>(this.dataManager._concreteHobo.inventory.ShowInventory());
+            
         }
 
         public string Name
@@ -70,6 +81,36 @@ namespace HoboWPF.ViewModel
         {
             get => money;
             set => Set(ref money, value);
+        }
+
+        public ObservableCollection<IStack> Stacks
+        {
+            get => stacks;
+            set => Set(ref stacks, value);
+        }
+
+        public int Index
+        {
+            get => index;
+            set
+            {
+                if (value == -1)
+                    Set(ref index, 0);
+                else Set(ref index, value);
+                NameItem = Stacks[Index].Item.Name;
+                TypeItem = Stacks[Index].Item.ItemType.ToString();
+            }
+        }
+
+        public string NameItem
+        {
+            get => nameItem;
+            set => Set(ref nameItem, value);
+        }
+        public string TypeItem
+        {
+            get => typeItem;
+            set=> Set(ref typeItem, value);
         }
 
         private void AlmsEvent()
@@ -117,6 +158,52 @@ namespace HoboWPF.ViewModel
             }
         }
 
+        private void UseItem()
+        {
+            if(serviceManager.TryUseItem(Index))
+            {
+                Refresh();
+            }
+            else
+            {
+                Refresh();
+                UseItemEventFailed?.Invoke("Инвентарь пуст!!!");
+            }
+        }
+        private void SellItem()
+        {
+            if (serviceManager.TrySellItem(Index))
+            {
+                Refresh();
+            }
+            else
+            {
+                Refresh();
+                UseItemEventFailed?.Invoke("Нечего продать!");
+            }
+        }
+
+        public ICommand UseItemCommand
+        {
+            get
+            {
+                return new Command(() =>
+                {
+                    UseItem();
+                });
+            }
+        }
+
+        public ICommand SellItemCommand
+        {
+            get
+            {
+                return new Command(() =>
+                {
+                    SellItem();
+                });
+            }
+        }
         public ICommand JobEventCommand
         {
             get
@@ -157,6 +244,7 @@ namespace HoboWPF.ViewModel
             Satiation = dataManager._concreteHobo.Satiation;
             EmotionalState = dataManager._concreteHobo.EmotionalState;
             Money = dataManager._concreteHobo.Money;
+            Stacks = new ObservableCollection<IStack>(this.dataManager._concreteHobo.inventory.ShowInventory());
         }
     }
 }

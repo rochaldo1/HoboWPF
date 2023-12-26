@@ -42,7 +42,11 @@ namespace HoboWPF.ViewModel
 
         public void TakeHobo()
         {
-            if (serviceManager.TryTakeHobo(Hobos[Index]))
+            if (Hobos.Count == 0)
+            {
+                TakeHoboFailed?.Invoke("Не удалось взять бомжа!");
+            }
+            else if (serviceManager.TryTakeHobo(Hobos[Index]))
             {
                 TakeHoboSucces?.Invoke();
             }

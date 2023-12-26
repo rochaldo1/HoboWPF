@@ -33,9 +33,12 @@ namespace HoboConsolePrjct.Model.Event
         {
             List<IEvents> list = EventsList.ShowEvent();
             List<IStack> stacks = list[whatEvent].Inventory.ShowInventory();
-            for (int i = 0; i < stacks.Count; i++)
+            if (stacks.Count != 0 || stacks != null) 
             {
-                hobo.inventory.AddStack(stacks[i]);
+                for (int i = 0; i < stacks.Count; i++)
+                {
+                    hobo.inventory.AddStack(stacks[i]);
+                }
             }
             hobo.Money += list[whatEvent].Money;
             ChangeValueStatic.HealthChange(hobo, list[whatEvent]);
