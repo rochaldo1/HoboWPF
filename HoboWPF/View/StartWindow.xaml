@@ -38,7 +38,7 @@
 
         <Grid Grid.Row="1" Grid.Column="1" x:Name="List_Of_Hobos">
             <ScrollViewer>
-                <ListBox x:Name="HoboList" ItemsSource="{Binding Hobos}">
+                <ListBox x:Name="HoboList" ItemsSource="{Binding Hobos}" SelectedIndex="{Binding Index}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <Grid>
@@ -56,7 +56,7 @@
         </Grid>
 
         <Grid Grid.Row="2" Grid.Column="1" x:Name="Create_Hobo">
-            <Button x:Name="Create_Hobo_Button" Content="Cоздать бомжа" Style="{StaticResource ResourceKey=Buttons_Start_Style}"></Button>
+            <Button x:Name="Create_Hobo_Button" Content="Cоздать бомжа" Style="{StaticResource ResourceKey=Buttons_Start_Style}" Click="Create_Hobo_Button_Click"></Button>
         </Grid>
 
         <Grid Grid.Row="3" Grid.Column="1" x:Name="Start_Game">

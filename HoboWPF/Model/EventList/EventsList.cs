@@ -33,7 +33,10 @@ namespace HoboConsolePrjct.Model.InventoryEvents
         {
             events.RemoveAt(i);
         }
-
+        public IEvents GetEvent(int number)
+        {
+            return events[number];
+        }
         public List<IEvents> ShowEvent()
         {
             return events;

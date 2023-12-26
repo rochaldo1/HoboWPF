@@ -28,6 +28,28 @@ namespace HoboWPF.View
         {
             InitializeComponent();
             DataContext = new MainHoboVM(this.dataManager = dataManager, this.serviceManager = serviceManager);
+            if(DataContext is MainHoboVM mainHoboVM) 
+            {
+                mainHoboVM.AlmsSucces += OpenEventWindow;
+                mainHoboVM.AlmsFailed += OpenHoboDied;
+            }
         }
+
+        private void OpenEventWindow()
+        {
+            EventWindow eventWindow = new EventWindow(dataManager,serviceManager);
+            eventWindow.ShowDialog();
+        }
+        private void OpenHoboDied(string text)
+        {
+           
+            StartWindow startWindow = new StartWindow(dataManager,serviceManager);
+            startWindow.Show();
+            ErrorWindow errorWindow = new ErrorWindow(text);
+            errorWindow.ShowDialog();
+            this.Close();
+            
+        }
+
     }
 }

@@ -65,14 +65,39 @@
                     <ProgressBar Minimum="0" Maximum="100" Value="{Binding EmotionalState}" Height="50"></ProgressBar>
                 </StackPanel>
             </Grid>
+            <Grid x:Name="Money_Container" Grid.Row="1" Grid.Column="4">
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Text="Баланс"></TextBlock>
+                    <TextBlock Text="{Binding Money}"></TextBlock>
+                </StackPanel>
+            </Grid>
         </Grid>
         
         <Grid x:Name="Events_Buttons" Grid.Row="3">
             <StackPanel Orientation="Horizontal">
-                <Button x:Name="Alms_Button" Command="" Content="Просить милостыню" Style="{StaticResource ResourceKey=Events_button_Style}"></Button>
+                <Button x:Name="Alms_Button" Command="{Binding AlmsCommand}" Content="Просить милостыню" Style="{StaticResource ResourceKey=Events_button_Style}"></Button>
                 <Button x:Name="Garbage_Button" Command="" Content="Сходить на помойку" Style="{StaticResource ResourceKey=Events_button_Style}"></Button>
                 <Button x:Name="Job_Button" Command="" Content="Работать" Style="{StaticResource ResourceKey=Events_button_Style}"></Button>
             </StackPanel>
+        </Grid>
+        <Grid x:Name="Big_Hobo_Information" Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="400"></ColumnDefinition>
+                <ColumnDefinition Width="400"></ColumnDefinition>
+                <ColumnDefinition Width="400"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            
+            <Grid x:Name="EventList" Grid.Column="0">
+                
+            </Grid>
+
+            <Grid x:Name="Hobo_Image" Grid.Column="1">
+                <Image Source="/HoboWPF;component/View/Images/hobo3.png"></Image>
+            </Grid>
+
+            <Grid x:Name="Hobo_InventoryList" Grid.Column="2">
+                
+            </Grid>
         </Grid>
     </Grid>
 </Window>

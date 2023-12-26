@@ -11,6 +11,7 @@
   <ItemGroup>
     <None Remove="View\Images\hobo1.jpg" />
     <None Remove="View\Images\hobo2.jpg" />
+    <None Remove="View\Images\hobo3.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -20,6 +21,7 @@
   <ItemGroup>
     <Resource Include="View\Images\hobo1.jpg" />
     <Resource Include="View\Images\hobo2.jpg" />
+    <Resource Include="View\Images\hobo3.png" />
   </ItemGroup>
 
 </Project>

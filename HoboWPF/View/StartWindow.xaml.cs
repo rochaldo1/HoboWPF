@@ -41,5 +41,15 @@ namespace HoboWPF.View
             mainHoboWindow.Show();
             this.Close();
         }
+
+        private void Create_Hobo_Button_Click(object sender, RoutedEventArgs e)
+        {
+            HoboAddWindow hoboAddWindow = new HoboAddWindow(dataManager, serviceManager);
+            hoboAddWindow.ShowDialog();
+            if(DataContext is StartVM startVM)
+            {
+                startVM.Refresh();
+            }
+        }
     }
 }

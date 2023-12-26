@@ -62,5 +62,10 @@ namespace HoboWPF.ViewModel
                 });
             }
         }
+
+        public void Refresh()
+        {
+            Hobos = new ObservableCollection<Hobo>(dataManager.hoboRepository.GetHobos());
+        }
     }
 }

@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
+using HoboWPF.ViewModel.Commands;
 
 namespace HoboWPF.ViewModel
 {
@@ -17,6 +19,11 @@ namespace HoboWPF.ViewModel
         private int energy;
         private int satiation;
         private int emotionalState;
+        private int money;
+
+        public event Action? AlmsSucces;
+        public event Action<string>? AlmsFailed;
+
 
         public MainHoboVM(IDataManager dataManager, IServiceManager serviceManager)
         {
@@ -27,6 +34,7 @@ namespace HoboWPF.ViewModel
             Energy = this.dataManager._concreteHobo.Energy;
             Satiation = this.dataManager._concreteHobo.Satiation;
             EmotionalState = this.dataManager._concreteHobo.EmotionalState;
+            Money = this.dataManager._concreteHobo.Money;
         }
 
         public string Name
@@ -54,7 +62,50 @@ namespace HoboWPF.ViewModel
         public int EmotionalState
         {
             get => emotionalState;
-            set => Set(ref  emotionalState, value);
+            set => Set(ref emotionalState, value);
+        }
+
+        public int Money
+        {
+            get => money;
+            set => Set(ref money, value);
+        }
+
+        private void Alms()
+        {
+            if (serviceManager.TryAlmsEvent())
+            {
+                AlmsSucces?.Invoke();
+                Refresh();
+            }
+            else
+            {
+                serviceManager.DeleteHobo();
+                AlmsFailed?.Invoke("Ваш бомжик умер(((((( Игра закончена!");
+                
+            }
+            
+        }
+
+        public ICommand AlmsCommand
+        {
+            get
+            {
+                return new Command(() =>
+                {
+                    Alms();
+                });
+            }
+        }
+
+        public void Refresh()
+        {
+            Name = dataManager._concreteHobo.Name;
+            Health = dataManager._concreteHobo.Health;
+            Energy = dataManager._concreteHobo.Energy;
+            Satiation = dataManager._concreteHobo.Satiation;
+            EmotionalState = dataManager._concreteHobo.EmotionalState;
+            Money = dataManager._concreteHobo.Money;
         }
     }
 }

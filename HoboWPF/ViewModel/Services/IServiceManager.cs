@@ -10,5 +10,8 @@ namespace HoboWPF.ViewModel.Services
     public interface IServiceManager
     {
         public bool TryTakeHobo(Hobo hobo);
+        public bool TryAlmsEvent();
+        public void DeleteHobo();
+        public bool TryAddHobo(string name);
     }
 }

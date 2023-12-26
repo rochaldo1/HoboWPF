@@ -13,6 +13,7 @@ namespace HoboWPF.ViewModel.DataManager
 {
     class DataManager : IDataManager
     {
+        private IEvents concreteEvent;
         private Hobo concreteHobo = null;
         private readonly HoboRepository _hoboRepository;
         private AlmsEvents _almsEvents = null;
@@ -54,7 +55,21 @@ namespace HoboWPF.ViewModel.DataManager
 
         public HoboRepository hoboRepository => _hoboRepository;
 
-        public AlmsEvents almsEvents => _almsEvents;
+        public AlmsEvents almsEvents
+        {
+            get => _almsEvents;
+            set
+            {
+                if (value != null)
+                    _almsEvents = value;
+            }
+        }
+
+        public IEvents ConcreteEvent
+        {
+            get => concreteEvent;
+            set => concreteEvent = value;
+        }
 
         public AlmsEventsRepository AlmsEventsRepository => _almsEventsRepository;
 
