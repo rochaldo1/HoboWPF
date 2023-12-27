@@ -66,5 +66,36 @@ namespace HoboWPF.View
                 mainHoboVM.Refresh();
             }
         }
+
+        private void Hospital_Button_Click(object sender, RoutedEventArgs e)
+        {
+            HospitalWindow hospitalWindow = new HospitalWindow(dataManager, serviceManager);
+            hospitalWindow.ShowDialog();
+            if (DataContext is MainHoboVM mainHoboVM)
+            {
+                mainHoboVM.Refresh();
+            }
+
+        }
+
+        private void DrugDen_Button_Click(object sender, RoutedEventArgs e)
+        {
+            DrugDenWindow drugDenWindow = new DrugDenWindow(dataManager, serviceManager);
+            drugDenWindow.ShowDialog();
+            if (DataContext is MainHoboVM mainHoboVM)
+            {
+                mainHoboVM.Refresh();
+            }
+        }
+
+        private void Estate_Button_Click(object sender, RoutedEventArgs e)
+        {
+            EstateWindow estateWindow = new EstateWindow(dataManager, serviceManager);
+            estateWindow.ShowDialog();
+            if (DataContext is MainHoboVM mainHoboVM)
+            {
+                mainHoboVM.Refresh();
+            }
+        }
     }
 }

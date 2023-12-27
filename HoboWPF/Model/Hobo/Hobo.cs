@@ -65,15 +65,11 @@ namespace HoboConsolePrjct.Model.Hobo
         {
             List<IStack> placeInventory = place.inventory.ShowInventory();
             if (placeInventory.Count == 0 || (i > placeInventory.Count - 1)) return false;
-            if (CheckCount.Check(placeInventory[i]))
+            if (Money >= placeInventory[i].Item.Price)
             {
-                if (Money >= placeInventory[i].Item.Price)
-                {
-                    Money -= placeInventory[i].Item.Price;
-                    inventory.AddStack(placeInventory[i]);
-                    return true;
-                }
-                return false;
+                Money -= placeInventory[i].Item.Price;
+                inventory.AddStack(placeInventory[i]);
+                return true;
             }
             return false;
         }

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:HoboWPF.View"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="ShopWindow" Height="550" Width="1000" ResizeMode="NoResize">
+        Title="ShopWindow" Height="550" Width="1150" ResizeMode="NoResize">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"></RowDefinition>
@@ -18,15 +18,17 @@
         <TextBlock Text="{Binding Name}" Grid.Row="0"></TextBlock>
         <TextBlock Text="{Binding Money}" Grid.Row="1"></TextBlock>
         <Grid Grid.Row="2">
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Название" Width="150" TextAlignment="Center"></TextBlock>
-                <TextBlock Text="Тип" Width="150" TextAlignment="Center"></TextBlock>
-                <TextBlock Text="Цена" Width="150" TextAlignment="Center"></TextBlock>
-                <TextBlock Text="Здоровье" Width="150" TextAlignment="Center"></TextBlock>
-                <TextBlock Text="Блаженство" Width="150" TextAlignment="Center"></TextBlock>
-                <TextBlock Text="Насыщение" Width="150" TextAlignment="Center"></TextBlock>
-                <TextBlock Text="Энергетическая ценность" Width="150" TextAlignment="Center"></TextBlock>
-            </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Название" Width="150" TextAlignment="Center"></TextBlock>
+                    <TextBlock Text="Тип" Width="150" TextAlignment="Center"></TextBlock>
+                    <TextBlock Text="Цена" Width="150" TextAlignment="Center"></TextBlock>
+                    <TextBlock Text="Здоровье" Width="150" TextAlignment="Center"></TextBlock>
+                    <TextBlock Text="Блаженство" Width="150" TextAlignment="Center"></TextBlock>
+                    <TextBlock Text="Насыщение" Width="150" TextAlignment="Center"></TextBlock>
+                    <TextBlock Text="Энергетическая ценность" Width="150" TextAlignment="Center"></TextBlock>
+                </StackPanel>
+
         </Grid>
         <Grid Grid.Row="3">
             <ScrollViewer>

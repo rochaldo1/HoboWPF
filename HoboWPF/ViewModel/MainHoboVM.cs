@@ -24,10 +24,9 @@ namespace HoboWPF.ViewModel
         private int satiation;
         private int emotionalState;
         private int money;
-        private ObservableCollection<IStack> stacks;
+        private ObservableCollection<IItem> inventory;
         private int index;
-        private string nameItem;
-        private string typeItem;
+        private int count;
         
 
         public event Action? EventSucces;
@@ -45,10 +44,29 @@ namespace HoboWPF.ViewModel
             Satiation = this.dataManager._concreteHobo.Satiation;
             EmotionalState = this.dataManager._concreteHobo.EmotionalState;
             Money = this.dataManager._concreteHobo.Money;
-            Stacks = new ObservableCollection<IStack>(this.dataManager._concreteHobo.inventory.ShowInventory());
-            
-        }
+            Inventory = new ObservableCollection<IItem>(itemsShow());
 
+        }
+        private List<IItem> itemsShow()
+        {
+            List<IStack> stacks = dataManager._concreteHobo.inventory.ShowInventory();
+            List<IItem> items = new();
+            for (int i = 0; i < stacks.Count; i++)
+            {
+                items.Add(stacks[i].Item);
+            }
+            return items;
+        }
+        private void RefreshCount() {
+            List<IStack> stacks = dataManager._concreteHobo.inventory.ShowInventory();
+            int Temp = index;
+            if (Index < 0 && stacks.Count != 0)
+                Count = stacks[0].Count;
+            if (stacks.Count == 0)
+                Count = 0;
+            else
+                Count = stacks[Index].Count;
+        }
         public string Name
         {
             get => name;
@@ -83,34 +101,28 @@ namespace HoboWPF.ViewModel
             set => Set(ref money, value);
         }
 
-        public ObservableCollection<IStack> Stacks
+        public ObservableCollection<IItem> Inventory
         {
-            get => stacks;
-            set => Set(ref stacks, value);
+            get => inventory;
+            set => Set(ref inventory, value);
         }
 
         public int Index
         {
             get => index;
             set
-            {
-                if (value == -1)
+            {   if(value == -1)
                     Set(ref index, 0);
-                else Set(ref index, value);
-                NameItem = Stacks[Index].Item.ToString();
-                TypeItem = Stacks[Index].Item.ItemType.ToString();
+                else
+                    Set(ref index, value);
+                RefreshCount();
             }
         }
 
-        public string NameItem
+        public int Count
         {
-            get => nameItem;
-            set => Set(ref nameItem, value);
-        }
-        public string TypeItem
-        {
-            get => typeItem;
-            set=> Set(ref typeItem, value);
+            get => count;
+            set => Set(ref count, value);
         }
 
         private void AlmsEvent()
@@ -244,7 +256,8 @@ namespace HoboWPF.ViewModel
             Satiation = dataManager._concreteHobo.Satiation;
             EmotionalState = dataManager._concreteHobo.EmotionalState;
             Money = dataManager._concreteHobo.Money;
-            Stacks = new ObservableCollection<IStack>(this.dataManager._concreteHobo.inventory.ShowInventory());
+            Inventory = new ObservableCollection<IItem>(itemsShow());
+            RefreshCount();
         }
     }
 }

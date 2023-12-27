@@ -1,21 +1,19 @@
-﻿using HoboWPF.ViewModel.DataManager;
-using HoboWPF.ViewModel.Services;
-using HoboConsole.Model.Items.Base;
-using HoboConsolePrjct.Model.Places;
+﻿using HoboConsole.Model.Items.Base;
+using HoboConsole.Model.Stacks;
 using HoboWPF.ViewModel.Commands;
+using HoboWPF.ViewModel.DataManager;
+using HoboWPF.ViewModel.Services;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using HoboConsole.Model.Stacks;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Windows.Input;
 
 namespace HoboWPF.ViewModel
 {
-    class ShopVM : BaseVM
+    public class DrugDenVM : BaseVM
     {
         IDataManager dataManager;
         IServiceManager serviceManager;
@@ -25,19 +23,19 @@ namespace HoboWPF.ViewModel
         private ObservableCollection<IItem> inventory = new ObservableCollection<IItem>();
 
         public event Action<string>? BuyFailed;
-        public ShopVM(IDataManager dataManager, IServiceManager serviceManager)
+        public DrugDenVM(IDataManager dataManager, IServiceManager serviceManager)
         {
             this.dataManager = dataManager;
             this.serviceManager = serviceManager;
-            Name = dataManager.Stores.Name;
+            Name = dataManager.DrugDen.Name;
             Inventory = new ObservableCollection<IItem>(itemsShow());
             Money = dataManager._concreteHobo.Money;
         }
         private List<IItem> itemsShow()
         {
-            List<IStack> stacks = dataManager.Stores.inventory.ShowInventory();
+            List<IStack> stacks = dataManager.DrugDen.inventory.ShowInventory();
             List<IItem> items = new();
-            for (int i = 0; i< stacks.Count; i++)
+            for (int i = 0; i < stacks.Count; i++)
             {
                 items.Add(stacks[i].Item);
             }
@@ -70,7 +68,7 @@ namespace HoboWPF.ViewModel
 
         public void BuyItem()
         {
-            if (serviceManager.TryBuyItem(dataManager.Stores, Index))
+            if (serviceManager.TryBuyItem(dataManager.DrugDen, Index))
             {
                 Refresh();
             }
@@ -89,6 +87,5 @@ namespace HoboWPF.ViewModel
                 });
             }
         }
-        
     }
 }

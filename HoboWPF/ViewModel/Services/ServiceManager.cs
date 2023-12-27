@@ -50,7 +50,6 @@ namespace HoboWPF.ViewModel.Services
         public bool TryAlmsEvent()
         {
             Random random = new Random();
-            dataManager.almsEvents = dataManager.AlmsEventsRepository.GetAlmsEvents();
             int number = random.Next(0, GetCount.GetCountOf(dataManager.almsEvents.EventsList));
             return almsEventService.TryAlmsEvent(number, dataManager);
         }
@@ -58,7 +57,6 @@ namespace HoboWPF.ViewModel.Services
         public bool TryGarbageEvent()
         {
             Random random = new Random();
-            dataManager.GarbageEvents = dataManager.GarbageEventsRepository.GetGarbageEvents();
             int number = random.Next(0,GetCount.GetCountOf(dataManager.GarbageEvents.EventsList));
             return garbageEService.TryGarbageEvent(number, dataManager);
 
@@ -67,7 +65,6 @@ namespace HoboWPF.ViewModel.Services
         public bool TryJobEvents()
         {
             Random random = new Random();
-            dataManager.JobEvents = dataManager.JobEventsRepository.GetJobEvents();
             int number = random.Next(0, GetCount.GetCountOf(dataManager.JobEvents.EventsList));
             return jobEService.TryJobEvent(number, dataManager);
         }

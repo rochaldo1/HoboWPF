@@ -20,9 +20,9 @@
         <Grid x:Name="Shop_Buttons" Grid.Row="0">
             <StackPanel Orientation="Horizontal">
                 <Button x:Name="Store_Button" Click="Store_Button_Click" Content="Магазин" Style="{StaticResource ResourceKey=Shops_button_Style}"></Button>
-                <Button x:Name="Hospital_Button" Command="" Content="Больница" Style="{StaticResource ResourceKey=Shops_button_Style}"></Button>
-                <Button x:Name="DrugDen_Button" Command="" Content="Диллер" Style="{StaticResource ResourceKey=Shops_button_Style}"></Button>
-                <Button x:Name="Estate_Button" Command="" Content="Агенство недвижимости" Style="{StaticResource ResourceKey=Shops_button_Style}"></Button>
+                <Button x:Name="Hospital_Button" Click="Hospital_Button_Click" Content="Больница" Style="{StaticResource ResourceKey=Shops_button_Style}"></Button>
+                <Button x:Name="DrugDen_Button" Click="DrugDen_Button_Click" Content="Диллер" Style="{StaticResource ResourceKey=Shops_button_Style}"></Button>
+                <Button x:Name="Estate_Button" Click="Estate_Button_Click" Content="Агенство недвижимости" Style="{StaticResource ResourceKey=Shops_button_Style}"></Button>
             </StackPanel>
         </Grid>
 
@@ -110,20 +110,43 @@
                         <ColumnDefinition></ColumnDefinition>
                         <ColumnDefinition></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                    <TextBlock Text="{Binding NameItem}" Grid.Column="0" Grid.ColumnSpan="2" TextWrapping="Wrap"></TextBlock>
-
+                    <TextBlock Text="Количество: " Grid.Column="0" ></TextBlock>
+                    <TextBlock Text="{Binding Count}" Grid.Column="1" ></TextBlock>
                 </Grid>
                 <Grid Grid.Row="2">
                     <ScrollViewer>
-                        <ListBox x:Name="InventoryList" ItemsSource="{Binding Stacks}" SelectedIndex="{Binding Index}">
+                        <ListBox x:Name="InventoryList" ItemsSource="{Binding Inventory}" SelectedIndex="{Binding Index}">
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
                                     <Grid>
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height="20"></RowDefinition>
                                             <RowDefinition Height="20"></RowDefinition>
+                                            <RowDefinition Height="20"></RowDefinition>
+                                            <RowDefinition Height="20"></RowDefinition>
+                                            <RowDefinition Height="20"></RowDefinition>
+                                            <RowDefinition Height="20"></RowDefinition>
+                                            <RowDefinition Height="20"></RowDefinition>
+                                            <RowDefinition Height="20"></RowDefinition>
                                         </Grid.RowDefinitions>
-                                        <TextBlock x:Name="Count_Of_Stack" Text="{Binding Count}" Grid.Row="0"></TextBlock>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="200"></ColumnDefinition>
+                                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Grid.Row="0" Grid.Column="0" Text="Название"></TextBlock>
+                                        <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Name}"></TextBlock>
+                                        <TextBlock Grid.Row="1" Grid.Column="0" Text="Тип"></TextBlock>
+                                        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding ItemType}"></TextBlock>
+                                        <TextBlock Grid.Row="2" Grid.Column="0" Text="Цена"></TextBlock>
+                                        <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Price}" ></TextBlock>
+                                        <TextBlock Grid.Row="3" Grid.Column="0" Text="Здоровье"></TextBlock>
+                                        <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding Healthy}"></TextBlock>
+                                        <TextBlock Grid.Row="4" Grid.Column="0" Text="Блаженство"></TextBlock>
+                                        <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding Pleasure}"></TextBlock>
+                                        <TextBlock Grid.Row="5" Grid.Column="0" Text="Насыщение"></TextBlock>
+                                        <TextBlock Grid.Row="5" Grid.Column="1" Text="{Binding Nutrition}"></TextBlock>
+                                        <TextBlock Grid.Row="6" Grid.Column="0" Text="Энергетическая ценность"></TextBlock>
+                                        <TextBlock Grid.Row="6" Grid.Column="1" Text="{Binding EnergyBoost}"></TextBlock>
                                     </Grid>
                                 </DataTemplate>
                             </ListBox.ItemTemplate>

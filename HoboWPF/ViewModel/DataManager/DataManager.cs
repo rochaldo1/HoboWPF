@@ -58,12 +58,7 @@ namespace HoboWPF.ViewModel.DataManager
 
         public AlmsEvents almsEvents
         {
-            get => _almsEvents;
-            set
-            {
-                if (value != null)
-                    _almsEvents = value;
-            }
+            get => _almsEventsRepository.GetAlmsEvents();   
         }
 
         public IEvents ConcreteEvent
@@ -74,38 +69,37 @@ namespace HoboWPF.ViewModel.DataManager
 
         public AlmsEventsRepository AlmsEventsRepository => _almsEventsRepository;
 
-        public DrugDen DrugDen => _drugDen;
+        public DrugDen DrugDen
+        {
+            get => DrugDenRepository.GetDrugDen();
+        }
 
         public DrugDenRepository DrugDenRepository => _drugDenRepository;
 
-        public EstateEngency Engency => _estateEngency;
+        public EstateEngency Engency
+        {
+            get => EstateEngencyRepository.GetEstateEngency();
+        }
 
         public EstateEngencyRepository EstateEngencyRepository => _estateEngencyRepository;
 
         public GarbageEvents GarbageEvents
         {
-            get => _garbageEvents;
-            set
-            {
-                if (value != null)
-                    _garbageEvents = value;
-            }
+            get => _garbageEventsRepository.GetGarbageEvents();
         }
 
         public GarbageEventsRepository GarbageEventsRepository => _garbageEventsRepository;
 
-        public Hospital hospital => _hospital;
+        public Hospital hospital
+        {
+            get => HospitalRepository.GetHospital();
+        }
 
         public HospitalRepository HospitalRepository => _hospitalRepository;
 
         public JobEvents JobEvents
         {
-            get => _jobEvents;
-            set
-            {
-                if (value != null)
-                    _jobEvents = value;
-            }
+            get => _jobEventsRepository.GetJobEvents();
         }
 
         public JobEventsRepository JobEventsRepository => _jobEventsRepository;
@@ -113,7 +107,6 @@ namespace HoboWPF.ViewModel.DataManager
         public Stores Stores
         {
             get => _stores = StoreRepository.GetStores();
-
         }
         public StoreRepository StoreRepository => _storeRepository;
 

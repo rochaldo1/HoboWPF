@@ -16,17 +16,17 @@ namespace HoboWPF.ViewModel.DataManager
         public IEvents ConcreteEvent { get; set; }
         public Hobo _concreteHobo { get; set; }
         public HoboRepository hoboRepository { get; }
-        public AlmsEvents almsEvents { get; set; }
+        public AlmsEvents almsEvents { get; }
         public AlmsEventsRepository AlmsEventsRepository { get; }
         public DrugDen DrugDen { get; }
         public DrugDenRepository DrugDenRepository { get; }
         public EstateEngency Engency { get; }
         public EstateEngencyRepository EstateEngencyRepository { get; }
-        public GarbageEvents GarbageEvents { get; set; }
+        public GarbageEvents GarbageEvents { get;  }
         public GarbageEventsRepository GarbageEventsRepository { get; }
         public Hospital hospital { get; }
         public HospitalRepository HospitalRepository { get; }
-        public JobEvents JobEvents { get; set; }
+        public JobEvents JobEvents { get; }
         public JobEventsRepository JobEventsRepository { get; }
         public StoreRepository StoreRepository { get; }
         public Stores Stores { get; }

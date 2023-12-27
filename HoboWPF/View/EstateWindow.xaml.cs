@@ -1,6 +1,6 @@
-﻿using HoboWPF.ViewModel;
-using HoboWPF.ViewModel.DataManager;
+﻿using HoboWPF.ViewModel.DataManager;
 using HoboWPF.ViewModel.Services;
+using HoboWPF.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,22 +18,22 @@ using System.Windows.Shapes;
 namespace HoboWPF.View
 {
     /// <summary>
-    /// Логика взаимодействия для ShopWindow.xaml
+    /// Логика взаимодействия для EstateWindow.xaml
     /// </summary>
-    public partial class ShopWindow : Window
+    public partial class EstateWindow : Window
     {
         IDataManager dataManager;
         IServiceManager serviceManager;
-        public ShopWindow(IDataManager dataManager,IServiceManager serviceManager)
+        public EstateWindow(IDataManager dataManager, IServiceManager serviceManager)
         {
             InitializeComponent();
-            DataContext = new ShopVM(this.dataManager = dataManager, this.serviceManager = serviceManager);
-            if(DataContext is ShopVM shopVM)
+            DataContext = new EstateVM(this.dataManager = dataManager, this.serviceManager = serviceManager);
+            if (DataContext is EstateVM estateVM)
             {
-                shopVM.BuyFailed += OpenErrorWindow;
+                estateVM.BuyFailed += OpenErrorWindow;
             }
         }
-        
+
         private void OpenErrorWindow(string text)
         {
             ErrorWindow errorWindow = new ErrorWindow(text);
