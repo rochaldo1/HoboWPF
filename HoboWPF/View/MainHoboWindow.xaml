@@ -43,32 +43,32 @@
             </Grid>
             <Grid x:Name="Health_Progressbar_Container" Grid.Row="1" Grid.Column="0">
                 <StackPanel Orientation="Vertical">
-                    <TextBlock Text="Здоровье"></TextBlock>
-                    <ProgressBar Minimum="0" Maximum="100" Value="{Binding Health}" Height="50"></ProgressBar>
+                    <TextBlock Text="Здоровье" Style="{StaticResource Properties_Style}"></TextBlock>
+                    <ProgressBar Minimum="0" Maximum="100" Value="{Binding Health}" Height="50" Foreground="Red"></ProgressBar>
                 </StackPanel>
             </Grid>
             <Grid x:Name="Energy_Progressbar_Container" Grid.Row="1" Grid.Column="1">
                 <StackPanel Orientation="Vertical">
-                    <TextBlock Text="Энергия"></TextBlock>
-                    <ProgressBar Minimum="0" Maximum="100" Value="{Binding Energy}" Height="50"></ProgressBar>
+                    <TextBlock Text="Энергия" Style="{StaticResource Properties_Style}"></TextBlock>
+                    <ProgressBar Minimum="0" Maximum="100" Value="{Binding Energy}" Height="50" Foreground="Yellow"></ProgressBar>
                 </StackPanel>
             </Grid>
             <Grid x:Name="Satiation_Progressbar_Container" Grid.Row="1" Grid.Column="2">
                 <StackPanel Orientation="Vertical">
-                    <TextBlock Text="Насыщение"></TextBlock>
-                    <ProgressBar Minimum="0" Maximum="100" Value="{Binding Satiation}" Height="50"></ProgressBar>
+                    <TextBlock Text="Насыщение" Style="{StaticResource Properties_Style}"></TextBlock>
+                    <ProgressBar Minimum="0" Maximum="100" Value="{Binding Satiation}" Height="50" Foreground="Orange"></ProgressBar>
                 </StackPanel>
             </Grid>
             <Grid x:Name="EmotionalState_Progressbar_Container" Grid.Row="1" Grid.Column="3">
                 <StackPanel Orientation="Vertical">
-                    <TextBlock Text="Эмоциональное состояние"></TextBlock>
+                    <TextBlock Text="Эмоциональное состояние" Style="{StaticResource Properties_Style}"></TextBlock>
                     <ProgressBar Minimum="0" Maximum="100" Value="{Binding EmotionalState}" Height="50"></ProgressBar>
                 </StackPanel>
             </Grid>
             <Grid x:Name="Money_Container" Grid.Row="1" Grid.Column="4">
                 <StackPanel Orientation="Vertical">
-                    <TextBlock Text="Баланс"></TextBlock>
-                    <TextBlock Text="{Binding Money}"></TextBlock>
+                    <TextBlock Text="Баланс" Style="{StaticResource Properties_Style}"></TextBlock>
+                    <TextBlock Text="{Binding Money}" Style="{StaticResource Properties_Style}"></TextBlock>
                 </StackPanel>
             </Grid>
         </Grid>
@@ -103,15 +103,15 @@
                     <RowDefinition Height="25"></RowDefinition>
                 </Grid.RowDefinitions>
                 <Grid Grid.Row="0">
-                    <TextBlock Text="Инвентарь"></TextBlock>
+                    <TextBlock Text="Инвентарь" Style="{StaticResource Properties_Style}"></TextBlock>
                 </Grid>
                 <Grid Grid.Row="1">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition></ColumnDefinition>
                         <ColumnDefinition></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                    <TextBlock Text="Количество: " Grid.Column="0" ></TextBlock>
-                    <TextBlock Text="{Binding Count}" Grid.Column="1" ></TextBlock>
+                    <TextBlock Text="Количество: " Grid.Column="0" TextAlignment="Right" Style="{StaticResource Properties_Style}"></TextBlock>
+                    <TextBlock Text="{Binding Count}" Grid.Column="1" TextAlignment="Left" Style="{StaticResource Properties_Style}"></TextBlock>
                 </Grid>
                 <Grid Grid.Row="2">
                     <ScrollViewer>
@@ -155,8 +155,8 @@
                 </Grid>
                 <Grid Grid.Row="3">
                     <StackPanel Orientation="Horizontal">
-                        <Button Content="Использовать" Command="{Binding UseItemCommand}"></Button>
-                        <Button Content="Продать" Command="{Binding SellItemCommand}"></Button>
+                        <Button Content="Использовать" Command="{Binding UseItemCommand}" Style="{StaticResource Inventory_Button_Style}"></Button>
+                        <Button Content="Продать" Command="{Binding SellItemCommand}" Style="{StaticResource Inventory_Button_Style}"></Button>
                     </StackPanel>
                 </Grid>
             </Grid>

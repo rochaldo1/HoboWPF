@@ -7,37 +7,40 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         Title="EventWindow" Height="450" Width="800" ResizeMode="NoResize" WindowStyle="None">
+    <Window.Resources>
+        <ResourceDictionary Source="/HoboWPF;component/View/Styles/EventsWindowStyles.xaml"></ResourceDictionary>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition Height="100"></RowDefinition>
+            <RowDefinition ></RowDefinition>
+            <RowDefinition Height="130"></RowDefinition>
             <RowDefinition Height="50"></RowDefinition>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" Text="Событие:"></TextBlock>
-        <TextBlock Grid.Row="1" Text="{Binding Text}"></TextBlock>
+        <TextBlock Grid.Row="0" Text="Событие:" Style="{StaticResource Heading_Text_style}"></TextBlock>
+        <TextBlock Grid.Row="1" Text="{Binding Text}" Style="{StaticResource Text_style}"></TextBlock>
         <Grid x:Name="Event_Pos" Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <StackPanel Orientation="Vertical" Grid.Column="0">
-                <TextBlock Text="Здоровье"></TextBlock>
-                <TextBlock Text="Энергия"></TextBlock>
-                <TextBlock Text="Насыщение"></TextBlock>
-                <TextBlock Text="Эмоциональное состояние"></TextBlock>
-                <TextBlock Text="Деньги"></TextBlock>
+                <TextBlock Text="Здоровье" Style="{StaticResource Text_style}"></TextBlock>
+                <TextBlock Text="Энергия" Style="{StaticResource Text_style}"></TextBlock>
+                <TextBlock Text="Насыщение" Style="{StaticResource Text_style}"></TextBlock>
+                <TextBlock Text="Эмоциональное состояние" Style="{StaticResource Text_style}"></TextBlock>
+                <TextBlock Text="Деньги" Style="{StaticResource Text_style}"></TextBlock>
             </StackPanel>
             <StackPanel Orientation="Vertical" Grid.Column="1">
-                <TextBlock Text="{Binding Health}"></TextBlock>
-                <TextBlock Text="{Binding Energy}"></TextBlock>
-                <TextBlock Text="{Binding Satiation}"></TextBlock>
-                <TextBlock Text="{Binding EmotionalState}"></TextBlock>
-                <TextBlock Text="{Binding Money}"></TextBlock>
+                <TextBlock Text="{Binding Health}" Style="{StaticResource Text_style}"></TextBlock>
+                <TextBlock Text="{Binding Energy}" Style="{StaticResource Text_style}"></TextBlock>
+                <TextBlock Text="{Binding Satiation}" Style="{StaticResource Text_style}"></TextBlock>
+                <TextBlock Text="{Binding EmotionalState}" Style="{StaticResource Text_style}"></TextBlock>
+                <TextBlock Text="{Binding Money}" Style="{StaticResource Text_style}"></TextBlock>
             </StackPanel>
         </Grid>
         <Grid x:Name="Succes_Button" Grid.Row="3">
-            <Button x:Name="Succes_Event" Content="OK" Click="Succes_Event_Click"></Button>
+            <Button x:Name="Succes_Event" Content="OK" Click="Succes_Event_Click" Style="{StaticResource Button_style}"></Button>
         </Grid>
     </Grid>
 </Window>
