@@ -1,6 +1,7 @@
 ﻿using HoboConsole.Model.Items.Base;
 using HoboConsolePrjct.Model.Hobo;
 using HoboConsolePrjct.Model.InventoryFolder;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,8 @@ namespace HoboConsolePrjct.Model.Events
         public string Text { get; set; }
         public int Pleasure { get; set; }
         public int Healthy { get; set; }
+        [JsonIgnore]
+        public int HealthyCheap { get; set; }   
         public int EnergyBoost { get; set; }
         public int Nutrition { get; set; }
         public int Money { get; set; }

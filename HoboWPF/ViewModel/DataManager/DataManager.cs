@@ -85,7 +85,7 @@ namespace HoboWPF.ViewModel.DataManager
 
         public GarbageEvents GarbageEvents
         {
-            get => _garbageEventsRepository.GetGarbageEvents();
+            get =>  _garbageEventsRepository.GetGarbageEvents();
         }
 
         public GarbageEventsRepository GarbageEventsRepository => _garbageEventsRepository;

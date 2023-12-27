@@ -43,7 +43,6 @@ namespace HoboWPF.View
         }
         private void OpenHoboDied(string text)
         {
-           
             StartWindow startWindow = new StartWindow(dataManager,serviceManager);
             startWindow.Show();
             ErrorWindow errorWindow = new ErrorWindow(text);

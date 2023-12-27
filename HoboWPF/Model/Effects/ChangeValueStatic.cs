@@ -102,21 +102,22 @@ namespace HoboConsolePrjct.Model.Effects
             {
                 if((hobo.Energy < 20)) 
                 {
-                    eventHobo.Healthy = 2 * eventHobo.Healthy;
-                    hobo.Health += eventHobo.Healthy;
+                    eventHobo.HealthyCheap = 2 * eventHobo.Healthy;
+                    hobo.Health += eventHobo.HealthyCheap;
                 }
-                else if ((hobo.Satiation < 15))
+                if ((hobo.Satiation < 15))
                 {
-                    eventHobo.Healthy = 2 * eventHobo.Healthy;
-                    hobo.Health += eventHobo.Healthy;
+                    eventHobo.HealthyCheap = 2 * eventHobo.Healthy;
+                    hobo.Health += eventHobo.HealthyCheap;
                 }
-                else if ((hobo.EmotionalState < 10))
+                if ((hobo.EmotionalState < 10))
                 {
-                    eventHobo.Healthy = 3 * eventHobo.Healthy;
-                    hobo.Health += eventHobo.Healthy;
+                    eventHobo.HealthyCheap = 3 * eventHobo.Healthy;
+                    hobo.Health += eventHobo.HealthyCheap;
                 }
                 else
                 {
+                    eventHobo.HealthyCheap = eventHobo.Healthy;
                     hobo.Health += eventHobo.Healthy;
                 }
                 CheckValueStatic.HealthCheck(hobo);

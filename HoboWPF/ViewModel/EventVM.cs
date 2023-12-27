@@ -25,7 +25,7 @@ namespace HoboWPF.ViewModel
             this.dataManager = dataManager;
             this.serviceManager = serviceManager;
             Text = this.dataManager.ConcreteEvent.Text;
-            Health = this.dataManager.ConcreteEvent.Healthy;
+            Health = this.dataManager.ConcreteEvent.HealthyCheap;
             Energy = this.dataManager.ConcreteEvent.EnergyBoost;
             Satiation = this.dataManager.ConcreteEvent.Nutrition;
             EmotionalState = this.dataManager.ConcreteEvent.Pleasure;

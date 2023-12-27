@@ -11,7 +11,6 @@ namespace HoboWPF.ViewModel.Services.JobEventService
     {
         public JobEService() { }
         public static JobEService Instance() => new JobEService();
-
         public bool TryJobEvent(int number, IDataManager dataManager)
         {
             dataManager.JobEvents.ApplyEffect(dataManager._concreteHobo, number);
