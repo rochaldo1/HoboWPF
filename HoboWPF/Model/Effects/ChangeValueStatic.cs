@@ -100,7 +100,25 @@ namespace HoboConsolePrjct.Model.Effects
             }
             if (entity is EventHobo eventHobo)
             {
-                hobo.Health += eventHobo.Healthy;
+                if((hobo.Energy < 20)) 
+                {
+                    eventHobo.Healthy = 2 * eventHobo.Healthy;
+                    hobo.Health += eventHobo.Healthy;
+                }
+                else if ((hobo.Satiation < 15))
+                {
+                    eventHobo.Healthy = 2 * eventHobo.Healthy;
+                    hobo.Health += eventHobo.Healthy;
+                }
+                else if ((hobo.EmotionalState < 10))
+                {
+                    eventHobo.Healthy = 3 * eventHobo.Healthy;
+                    hobo.Health += eventHobo.Healthy;
+                }
+                else
+                {
+                    hobo.Health += eventHobo.Healthy;
+                }
                 CheckValueStatic.HealthCheck(hobo);
             }
         }

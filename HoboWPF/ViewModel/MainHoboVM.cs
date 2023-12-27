@@ -97,7 +97,7 @@ namespace HoboWPF.ViewModel
                 if (value == -1)
                     Set(ref index, 0);
                 else Set(ref index, value);
-                NameItem = Stacks[Index].Item.Name;
+                NameItem = Stacks[Index].Item.ToString();
                 TypeItem = Stacks[Index].Item.ItemType.ToString();
             }
         }

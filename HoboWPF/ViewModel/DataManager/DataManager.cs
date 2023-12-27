@@ -28,6 +28,7 @@ namespace HoboWPF.ViewModel.DataManager
         private readonly HospitalRepository _hospitalRepository;
         public JobEvents _jobEvents = null;
         private readonly JobEventsRepository _jobEventsRepository;
+        public Stores _stores;
         private readonly StoreRepository _storeRepository;
 
         public DataManager(HoboRepository _hoboRepository, AlmsEventsRepository _almsEventsRepository, DrugDenRepository _drugDenRepository, EstateEngencyRepository _estateEngencyRepository,GarbageEventsRepository _garbageEventsRepository, HospitalRepository _hospitalRepository, JobEventsRepository _jobEventsRepository,StoreRepository _storeRepository )
@@ -109,6 +110,11 @@ namespace HoboWPF.ViewModel.DataManager
 
         public JobEventsRepository JobEventsRepository => _jobEventsRepository;
 
+        public Stores Stores
+        {
+            get => _stores = StoreRepository.GetStores();
+
+        }
         public StoreRepository StoreRepository => _storeRepository;
 
         public async Task LoadHobosAsync()

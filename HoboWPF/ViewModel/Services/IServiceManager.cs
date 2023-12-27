@@ -1,4 +1,5 @@
 ﻿using HoboConsolePrjct.Model.Hobo;
+using HoboConsolePrjct.Model.Places;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,5 +18,7 @@ namespace HoboWPF.ViewModel.Services
         public bool TryAddHobo(string name);
         public bool TryUseItem(int index);
         public bool TrySellItem(int index);
+
+        public bool TryBuyItem(IPlace place, int index);
     }
 }

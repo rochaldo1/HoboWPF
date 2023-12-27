@@ -57,5 +57,14 @@ namespace HoboWPF.View
             errorWindow.ShowDialog();
         }
 
+        private void Store_Button_Click(object sender, RoutedEventArgs e)
+        {
+            ShopWindow shopWindow = new ShopWindow(dataManager, serviceManager);
+            shopWindow.ShowDialog();
+            if (DataContext is MainHoboVM mainHoboVM)
+            {
+                mainHoboVM.Refresh();
+            }
+        }
     }
 }

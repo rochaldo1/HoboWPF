@@ -17,5 +17,6 @@ namespace HoboConsole.Model.Items.Base
         public string Name { get; }
         public int Pleasure { get; } //Определяет как и как сильно влияет купленная вещь на эмоц. состояние
         public ItemTypeEnum ItemType { get; }
+        public  string ToString();
     }
 }

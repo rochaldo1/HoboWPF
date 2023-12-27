@@ -19,7 +19,7 @@
         </Grid.RowDefinitions>
         <Grid x:Name="Shop_Buttons" Grid.Row="0">
             <StackPanel Orientation="Horizontal">
-                <Button x:Name="Store_Button" Command="" Content="Магазин" Style="{StaticResource ResourceKey=Shops_button_Style}"></Button>
+                <Button x:Name="Store_Button" Click="Store_Button_Click" Content="Магазин" Style="{StaticResource ResourceKey=Shops_button_Style}"></Button>
                 <Button x:Name="Hospital_Button" Command="" Content="Больница" Style="{StaticResource ResourceKey=Shops_button_Style}"></Button>
                 <Button x:Name="DrugDen_Button" Command="" Content="Диллер" Style="{StaticResource ResourceKey=Shops_button_Style}"></Button>
                 <Button x:Name="Estate_Button" Command="" Content="Агенство недвижимости" Style="{StaticResource ResourceKey=Shops_button_Style}"></Button>
@@ -110,8 +110,8 @@
                         <ColumnDefinition></ColumnDefinition>
                         <ColumnDefinition></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                    <TextBlock Text="{Binding NameItem}" Grid.Column="0"></TextBlock>
-                    <TextBlock Text="{Binding TypeItem}" Grid.Column="1"></TextBlock>
+                    <TextBlock Text="{Binding NameItem}" Grid.Column="0" Grid.ColumnSpan="2" TextWrapping="Wrap"></TextBlock>
+
                 </Grid>
                 <Grid Grid.Row="2">
                     <ScrollViewer>

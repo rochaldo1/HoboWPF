@@ -4,6 +4,7 @@ using HoboWPF.ViewModel.DataManager;
 using HoboWPF.ViewModel.Services;
 using HoboWPF.ViewModel.Services.AddHoboService;
 using HoboWPF.ViewModel.Services.AlmsService;
+using HoboWPF.ViewModel.Services.BuyItemService;
 using HoboWPF.ViewModel.Services.DeleteHoboService;
 using HoboWPF.ViewModel.Services.GarbageEventService;
 using HoboWPF.ViewModel.Services.GoToHoboService;
@@ -29,6 +30,7 @@ namespace HoboWPF
         private IGarbageEService garbageEService;
         private IJobEService jobEService;
         private IUseItemService useItemService;
+        private IBuyItemService buyItemService;
         private AlmsEventsRepository almsEventsRepository;
         private EstateEngencyRepository estateEngencyRepository;
         private DrugDenRepository drugDenRepository;
@@ -68,7 +70,8 @@ namespace HoboWPF
             garbageEService = GarbageEService.Instance();
             jobEService = JobEService.Instance();
             useItemService = UseItemService.Instanse();
-            serviceManager = ServiceManager.Instanse(dataManager, takeHoboService, almsEventService,deleteHoboService, addHoboService,garbageEService,jobEService,useItemService);
+            buyItemService = BuyItemService.Instance();
+            serviceManager = ServiceManager.Instanse(dataManager, takeHoboService, almsEventService,deleteHoboService, addHoboService,garbageEService,jobEService,useItemService,buyItemService);
         }
 
         protected override async void OnStartup(StartupEventArgs e)

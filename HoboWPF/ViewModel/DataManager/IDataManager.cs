@@ -29,6 +29,7 @@ namespace HoboWPF.ViewModel.DataManager
         public JobEvents JobEvents { get; set; }
         public JobEventsRepository JobEventsRepository { get; }
         public StoreRepository StoreRepository { get; }
+        public Stores Stores { get; }
 
         public Task LoadHobosAsync();
         public Task LoadAlmsAsync();

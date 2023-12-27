@@ -40,5 +40,10 @@ namespace HoboConsole.Model.Items
             ChangeValueStatic.EmotionalChange(hobo, item);
             ChangeValueStatic.HealthChange(hobo, item);
         }
+
+        public override string ToString()
+        {
+            return $"Name: {Name} Type: {ItemType} Price: {Price}";
+        }
     }
 }

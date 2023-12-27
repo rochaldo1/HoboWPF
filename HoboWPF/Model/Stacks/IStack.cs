@@ -14,5 +14,6 @@ namespace HoboConsole.Model.Stacks
     {
         public IItem Item { get; set; }
         public int Count { get; set; }
+        public string ToString();
     }
 }
