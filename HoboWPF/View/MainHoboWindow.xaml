@@ -44,7 +44,7 @@
             <Grid x:Name="Health_Progressbar_Container" Grid.Row="1" Grid.Column="0">
                 <StackPanel Orientation="Vertical">
                     <TextBlock Text="Здоровье" Style="{StaticResource Properties_Style}"></TextBlock>
-                    <ProgressBar Minimum="0" Maximum="100" Value="{Binding Health}" Height="50" Foreground="Red"></ProgressBar>
+                    <ProgressBar Minimum="0" Maximum="100" Value="{Binding Health}" Height="50" Style="{DynamicResource Try}"></ProgressBar>
                 </StackPanel>
             </Grid>
             <Grid x:Name="Energy_Progressbar_Container" Grid.Row="1" Grid.Column="1">

@@ -27,7 +27,7 @@ namespace HoboWPF.ViewModel
         {
             this.dataManager = dataManager;
             this.serviceManager = serviceManager;
-            Name = dataManager.Stores.Name;
+            Name = dataManager.hospital.Name;
             Inventory = new ObservableCollection<IItem>(itemsShow());
             Money = dataManager._concreteHobo.Money;
         }

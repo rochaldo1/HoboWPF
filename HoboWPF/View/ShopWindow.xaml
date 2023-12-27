@@ -7,6 +7,9 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         Title="ShopWindow" Height="550" Width="1150" ResizeMode="NoResize">
+    <Window.Resources>
+        <ResourceDictionary Source="/HoboWPF;component/View/Styles/ShopsWindowStyles.xaml"></ResourceDictionary>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"></RowDefinition>
@@ -15,19 +18,19 @@
             <RowDefinition Height="1*"></RowDefinition>
             <RowDefinition Height="50"></RowDefinition>
         </Grid.RowDefinitions>
-        <TextBlock Text="{Binding Name}" Grid.Row="0"></TextBlock>
-        <TextBlock Text="{Binding Money}" Grid.Row="1"></TextBlock>
+        <TextBlock Text="{Binding Name}" Grid.Row="0" Style="{StaticResource Heading_Text_style}"></TextBlock>
+        <TextBlock Text="{Binding Money}" Grid.Row="1" Style="{StaticResource Text_style}"></TextBlock>
         <Grid Grid.Row="2">
 
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Название" Width="150" TextAlignment="Center"></TextBlock>
-                    <TextBlock Text="Тип" Width="150" TextAlignment="Center"></TextBlock>
-                    <TextBlock Text="Цена" Width="150" TextAlignment="Center"></TextBlock>
-                    <TextBlock Text="Здоровье" Width="150" TextAlignment="Center"></TextBlock>
-                    <TextBlock Text="Блаженство" Width="150" TextAlignment="Center"></TextBlock>
-                    <TextBlock Text="Насыщение" Width="150" TextAlignment="Center"></TextBlock>
-                    <TextBlock Text="Энергетическая ценность" Width="150" TextAlignment="Center"></TextBlock>
-                </StackPanel>
+                <TextBlock Text="Название" Width="150" TextAlignment="Center" Style="{StaticResource Text_style}"></TextBlock>
+                <TextBlock Text="Тип" Width="150" TextAlignment="Center" Style="{StaticResource Text_style}"></TextBlock>
+                <TextBlock Text="Цена" Width="150" TextAlignment="Center" Style="{StaticResource Text_style}"></TextBlock>
+                <TextBlock Text="Здоровье" Width="150" TextAlignment="Center" Style="{StaticResource Text_style}"></TextBlock>
+                <TextBlock Text="Блаженство" Width="150" TextAlignment="Center" Style="{StaticResource Text_style}"></TextBlock>
+                <TextBlock Text="Насыщение" Width="150" TextAlignment="Center" Style="{StaticResource Text_style}"></TextBlock>
+                <TextBlock Text="Энергетическая ценность" Width="250" TextAlignment="Center" Style="{StaticResource Text_style}"/>
+            </StackPanel>
 
         </Grid>
         <Grid Grid.Row="3">
@@ -45,13 +48,13 @@
                                     <ColumnDefinition Width="150"></ColumnDefinition>
                                     <ColumnDefinition Width="150"></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
-                                <TextBlock Grid.Column="0" Text="{Binding Name}"></TextBlock>
-                                <TextBlock Grid.Column="1" Text="{Binding ItemType}"></TextBlock>
-                                <TextBlock Grid.Column="2" Text="{Binding Price}" ></TextBlock>
-                                <TextBlock Grid.Column="3" Text="{Binding Healthy}"></TextBlock>
-                                <TextBlock Grid.Column="4" Text="{Binding Pleasure}"></TextBlock>
-                                <TextBlock Grid.Column="5" Text="{Binding Nutrition}"></TextBlock>
-                                <TextBlock Grid.Column="6" Text="{Binding EnergyBoost}"></TextBlock>
+                                <TextBlock Grid.Column="0" Text="{Binding Name}" Style="{StaticResource Text_style}"></TextBlock>
+                                <TextBlock Grid.Column="1" Text="{Binding ItemType}" Style="{StaticResource Text_style}"></TextBlock>
+                                <TextBlock Grid.Column="2" Text="{Binding Price}" Style="{StaticResource Text_style}"></TextBlock>
+                                <TextBlock Grid.Column="3" Text="{Binding Healthy}" Style="{StaticResource Text_style}"></TextBlock>
+                                <TextBlock Grid.Column="4" Text="{Binding Pleasure}" Style="{StaticResource Text_style}"></TextBlock>
+                                <TextBlock Grid.Column="5" Text="{Binding Nutrition}" Style="{StaticResource Text_style}"></TextBlock>
+                                <TextBlock Grid.Column="6" Text="{Binding EnergyBoost}" Style="{StaticResource Text_style}"></TextBlock>
                             </Grid>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
@@ -59,7 +62,7 @@
             </ScrollViewer>
         </Grid>
         <Grid Grid.Row="4">
-            <Button Content="Купить" Command="{Binding BuyItemCommand}"></Button>
+            <Button Content="Купить" Command="{Binding BuyItemCommand}" Style="{StaticResource Button_style}"></Button>
         </Grid>
     </Grid>
 </Window>

@@ -7,14 +7,17 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         Title="HoboAddWindow" Height="188" Width="200">
+    <Window.Resources>
+        <ResourceDictionary Source="/HoboWPF;component/View/Styles/ShopsWindowStyles.xaml"></ResourceDictionary>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"></RowDefinition>
             <RowDefinition Height="50"></RowDefinition>
             <RowDefinition Height="50"></RowDefinition>
         </Grid.RowDefinitions>
-        <TextBlock Text="Назовите бомжа:" Grid.Row="0"></TextBlock>
+        <TextBlock Text="Назовите бомжа:" Grid.Row="0" Style="{StaticResource Text_style}"></TextBlock>
         <TextBox x:Name="Hobo_Name" MaxLength="15" Text="{Binding Name}" Grid.Row="1"></TextBox>
-        <Button x:Name="Creat_Hobo" Grid.Row="2" Content="Создать бомжа" Command="{Binding AddHoboCommand}"></Button>
+        <Button x:Name="Creat_Hobo" Grid.Row="2" Content="Создать бомжа" Command="{Binding AddHoboCommand}" Style="{StaticResource Button_style}"></Button>
     </Grid>
 </Window>

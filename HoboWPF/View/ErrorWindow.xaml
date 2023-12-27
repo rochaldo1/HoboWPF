@@ -7,7 +7,10 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         Title="ErrorWindow" Height="200" Width="400">
+    <Window.Resources>
+        <ResourceDictionary Source="/HoboWPF;component/View/Styles/MainHoboWindowStyles.xaml"></ResourceDictionary>
+    </Window.Resources>
     <Grid>
-        <TextBlock x:Name="Error"></TextBlock>
+        <TextBlock x:Name="Error" Style="{StaticResource Properties_Style}" TextWrapping="Wrap"></TextBlock>
     </Grid>
 </Window>
