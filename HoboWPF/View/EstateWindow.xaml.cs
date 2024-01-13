@@ -31,6 +31,7 @@ namespace HoboWPF.View
             if (DataContext is EstateVM estateVM)
             {
                 estateVM.BuyFailed += OpenErrorWindow;
+                estateVM.BuyHouse += OpenEndWindow;
             }
         }
 
@@ -38,6 +39,12 @@ namespace HoboWPF.View
         {
             ErrorWindow errorWindow = new ErrorWindow(text);
             errorWindow.ShowDialog();
+        }
+
+        private void OpenEndWindow()
+        {
+            EndGameWindow endGameWindow = new EndGameWindow(dataManager,serviceManager);
+            endGameWindow.ShowDialog();
         }
     }
 }

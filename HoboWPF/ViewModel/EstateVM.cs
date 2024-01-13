@@ -23,6 +23,7 @@ namespace HoboWPF.ViewModel
         private ObservableCollection<IItem> inventory = new ObservableCollection<IItem>();
 
         public event Action<string>? BuyFailed;
+        public event Action? BuyHouse;
         public EstateVM(IDataManager dataManager, IServiceManager serviceManager)
         {
             this.dataManager = dataManager;
@@ -71,6 +72,11 @@ namespace HoboWPF.ViewModel
             if (serviceManager.TryBuyItem(dataManager.Engency, Index))
             {
                 Refresh();
+                var p = itemsShow().OrderBy(IItem => IItem.Price).ToList();
+                if (Inventory[index].Price == p[p.Count - 1].Price)
+                {
+                    BuyHouse?.Invoke();
+                }
             }
             else
             {
