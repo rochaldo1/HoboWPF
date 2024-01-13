@@ -24,7 +24,6 @@ namespace HoboConsole.Model.Items
             Pleasure = pleasure;
             this.ItemTypeNum = ItemTypeNum;
             ItemType = (ItemTypeEnum)(this.ItemTypeNum);
-
         }
         public void Effect(IHobo hobo, IItem item)
         {
