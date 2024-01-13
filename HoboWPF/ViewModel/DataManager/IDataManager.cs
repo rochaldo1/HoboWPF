@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using HoboConsolePrjct.Data;
+﻿using HoboConsolePrjct.Data;
 using HoboConsolePrjct.Model.Hobo;
 using HoboConsolePrjct.Model.Events;
 using HoboConsolePrjct.Model.Places;

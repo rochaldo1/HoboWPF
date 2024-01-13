@@ -1,11 +1,4 @@
-﻿using Newtonsoft.Json.Bson;
-using HoboWPF.ViewModel.DataManager;
-using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using HoboWPF.ViewModel.DataManager;
 
 namespace HoboWPF.ViewModel.Services.DeleteHoboService
 {

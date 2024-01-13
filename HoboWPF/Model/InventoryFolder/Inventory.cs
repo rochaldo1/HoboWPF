@@ -1,13 +1,5 @@
-﻿using HoboConsole.Model.Items.Base;
-using HoboConsole.Model.Stacks;
-using HoboConsolePrjct.Model.Hobo;
+﻿using HoboConsole.Model.Stacks;
 using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.AccessControl;
-
-using System.Threading.Tasks;
 
 namespace HoboConsolePrjct.Model.InventoryFolder
 {

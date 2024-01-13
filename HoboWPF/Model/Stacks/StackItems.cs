@@ -1,12 +1,5 @@
 ﻿using HoboConsole.Model.Items.Base;
-using HoboConsolePrjct.Model;
 using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web;
 
 namespace HoboConsole.Model.Stacks
 {

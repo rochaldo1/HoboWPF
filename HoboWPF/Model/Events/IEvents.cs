@@ -1,12 +1,4 @@
-﻿using HoboConsole.Model.Items.Base;
-using HoboConsolePrjct.Model.Hobo;
-using HoboConsolePrjct.Model.InventoryFolder;
-using HoboConsolePrjct.Model.Items.Base;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using HoboConsolePrjct.Model.InventoryFolder;
 
 namespace HoboConsolePrjct.Model.Events
 {

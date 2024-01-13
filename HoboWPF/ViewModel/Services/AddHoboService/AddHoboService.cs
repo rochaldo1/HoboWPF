@@ -1,10 +1,5 @@
 ﻿using HoboWPF.ViewModel.DataManager;
 using HoboConsolePrjct.Model.Hobo;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using HoboConsolePrjct.Model.InventoryFolder;
 
 namespace HoboWPF.ViewModel.Services.AddHoboService

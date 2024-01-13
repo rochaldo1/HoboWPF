@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace HoboConsole.Model.Items.Base
+﻿namespace HoboConsole.Model.Items.Base
 {
     public enum ItemTypeEnum
     {

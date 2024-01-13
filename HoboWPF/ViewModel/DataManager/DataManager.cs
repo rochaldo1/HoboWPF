@@ -3,11 +3,6 @@ using HoboConsolePrjct.Model.Event;
 using HoboConsolePrjct.Model.Events;
 using HoboConsolePrjct.Model.Hobo;
 using HoboConsolePrjct.Model.Places;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HoboWPF.ViewModel.DataManager
 {

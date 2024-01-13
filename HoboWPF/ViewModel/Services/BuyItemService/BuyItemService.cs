@@ -1,12 +1,5 @@
 ﻿using HoboConsolePrjct.Model.Places;
 using HoboWPF.ViewModel.DataManager;
-using HoboWPF.ViewModel.Services.AlmsService;
-using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HoboWPF.ViewModel.Services.BuyItemService
 {

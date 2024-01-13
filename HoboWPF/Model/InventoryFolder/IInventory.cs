@@ -1,11 +1,4 @@
-﻿using HoboConsole.Model.Items.Base;
-using HoboConsole.Model.Stacks;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using HoboConsolePrjct.Model.Hobo;
+﻿using HoboConsole.Model.Stacks;
 
 namespace HoboConsolePrjct.Model.InventoryFolder
 {

@@ -1,13 +1,7 @@
 ﻿using HoboConsole.Model.Items.Base;
 using HoboConsolePrjct.Model.Effects;
 using HoboConsolePrjct.Model.Hobo;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using HoboConsolePrjct.Model;
-using Newtonsoft.Json.Converters;
 using Newtonsoft.Json;
 
 namespace HoboConsole.Model.Items

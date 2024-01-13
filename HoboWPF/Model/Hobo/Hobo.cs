@@ -1,12 +1,6 @@
 ﻿using HoboConsole.Model.Stacks;
 using HoboConsolePrjct.Model.InventoryFolder;
 using HoboConsolePrjct.Model.Places;
-using Newtonsoft.Json;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace HoboConsolePrjct.Model.Hobo
 {
