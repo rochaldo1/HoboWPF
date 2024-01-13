@@ -11,7 +11,6 @@ using HoboWPF.ViewModel.Services.GoToHoboService;
 using HoboWPF.ViewModel.Services.JobEventService;
 using HoboWPF.ViewModel.Services.UseItemServices;
 using System.Configuration;
-using System.Data;
 using System.Windows;
 
 namespace HoboWPF

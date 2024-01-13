@@ -2,12 +2,6 @@
 using HoboConsolePrjct.Model.CheckValues;
 using HoboConsolePrjct.Model.Hobo;
 using HoboConsolePrjct.Model.Events;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Principal;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HoboConsolePrjct.Model.Effects
 {
@@ -63,7 +57,6 @@ namespace HoboConsolePrjct.Model.Effects
                 hobo.Energy += drugs.EnergyBoost;
                 CheckValueStatic.EnergyCheck(hobo);
             }
-
             if (entity is Medicine medicine)
             {
                 hobo.Energy += medicine.EnergyBoost;

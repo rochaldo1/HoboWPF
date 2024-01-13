@@ -1,11 +1,5 @@
-﻿using HoboConsolePrjct.Model.Places;
-using HoboConsolePrjct.Model.Event;
+﻿using HoboConsolePrjct.Model.Event;
 using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
 
 namespace HoboConsolePrjct.Data
@@ -46,8 +40,6 @@ namespace HoboConsolePrjct.Data
             if (_garbageEvents == null) return false;
             using var stream = File.Open(path, FileMode.Create);
             using var writer = new StreamWriter(stream);
-            //var options = new JsonSerializerOptions { WriteIndented = true };
-            //string saveJson = JsonSerializer.Serialize(_hoboList, options);
             string saveJson = JsonConvert.SerializeObject(_garbageEvents, Formatting.Indented, new JsonSerializerSettings() { TypeNameHandling = TypeNameHandling.All });
             writer.Write(saveJson);
             return true;
